@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tictactoe-springrs-app
+spec:
+  selector:
+    matchLabels:
+      app: tictactoe-springrs-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: tictactoe-springrs-app
+    spec:
+      containers:
+        - name: tictactoe-springrs-app
+          image: mytests/tictactoe-springrs/latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
